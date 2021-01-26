@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-case" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="number-case" type="text" class="form-control text-center" value="1">
+                           <button id="plus-case" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="price-case">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -108,6 +108,19 @@
       })
 
       /***********************  case section ***********************/
+      let numberOfCase=parseInt(document.getElementById("number-case").value);
+      /*******************adding case ******/
+      let casePlus=document.getElementById("plus-case");
+
+      casePlus.addEventListener("click",function(event){
+         
+         numberOfCase=numberOfCase+1;
+         document.getElementById("number-case").value=numberOfCase;
+         
+         let newPrice1 = 59 * numberOfCase;
+         document.getElementById("price-case").innerHTML=newPrice1;
+
+      })
 
    </script>
 </body>
