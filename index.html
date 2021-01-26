@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-phone" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="number-phone" type="text" class="form-control text-center" value="1">
+                           <button id="plus-phone" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="price-phone">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -77,6 +77,39 @@
          </div>
       </div>
    </section>
+
+   <script>
+      /***********************  phone section ***********************/
+   let numberOfPhone=parseInt(document.getElementById("number-phone").value);
+      /*******************adding phone ******/
+      let phonePlus=document.getElementById("plus-phone");
+
+      phonePlus.addEventListener("click",function(event){
+         
+         numberOfPhone=numberOfPhone+1;
+         document.getElementById("number-phone").value=numberOfPhone;
+         
+         let newPrice = 1219 *numberOfPhone;
+         document.getElementById("price-phone").innerHTML=newPrice;
+
+      })
+
+      /*******************deletion phone ******/
+      let phoneMinus=document.getElementById("minus-phone");
+      phoneMinus.addEventListener("click",function(event){
+         
+         numberOfPhone=numberOfPhone-1;
+         document.getElementById("number-phone").value=numberOfPhone;
+
+         let PriceOfPhone=parseInt(document.getElementById("price-phone").innerHTML);
+         let newPrice = PriceOfPhone-(1219);
+         document.getElementById("price-phone").innerHTML=newPrice;
+
+      })
+
+      /***********************  case section ***********************/
+
+   </script>
 </body>
 
 </html>
