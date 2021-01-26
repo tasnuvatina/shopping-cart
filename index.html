@@ -80,24 +80,27 @@
 
    <script>
       /***********************  phone section ***********************/
-   let numberOfPhone=parseInt(document.getElementById("number-phone").value);
+  
       /*******************adding phone ******/
       let phonePlus=document.getElementById("plus-phone");
 
       phonePlus.addEventListener("click",function(event){
          
-         numberOfPhone=numberOfPhone+1;
-         document.getElementById("number-phone").value=numberOfPhone;
-         
-         let newPrice = 1219 *numberOfPhone;
-         document.getElementById("price-phone").innerHTML=newPrice;
 
+         let numberOfPhone=parseInt(document.getElementById("number-phone").value);
+         
+         let newNumberOfPhone =getNumberOfItem(numberOfPhone,"number-phone");
+         
+         let priceOfOnePhone= 1219;
+
+         addPriceOfItem(priceOfOnePhone,newNumberOfPhone,"price-phone");
       })
 
       /*******************deletion phone ******/
       let phoneMinus=document.getElementById("minus-phone");
       phoneMinus.addEventListener("click",function(event){
-         
+
+         let numberOfPhone=parseInt(document.getElementById("number-phone").value);
          numberOfPhone=numberOfPhone-1;
          document.getElementById("number-phone").value=numberOfPhone;
 
@@ -108,19 +111,49 @@
       })
 
       /***********************  case section ***********************/
-      let numberOfCase=parseInt(document.getElementById("number-case").value);
+      
       /*******************adding case ******/
       let casePlus=document.getElementById("plus-case");
 
       casePlus.addEventListener("click",function(event){
          
-         numberOfCase=numberOfCase+1;
-         document.getElementById("number-case").value=numberOfCase;
+         let numberOfCase=parseInt(document.getElementById("number-case").value);
          
-         let newPrice1 = 59 * numberOfCase;
+         let newNumberOfCase =getNumberOfItem(numberOfCase,"number-case");
+         
+         let priceOfOneCase= 59;
+         addPriceOfItem(priceOfOneCase,newNumberOfCase,"price-case");
+
+
+      })
+
+      /*******************deletion phone ******/
+      let caseMinus=document.getElementById("minus-case");
+      caseMinus.addEventListener("click",function(event){
+         
+         numberOfCase=numberOfCase-1;
+         document.getElementById("number-case").value=numberOfCase;
+
+         let PriceOfCase=parseInt(document.getElementById("price-case").innerHTML);
+         let newPrice1 = PriceOfCase-(59);
          document.getElementById("price-case").innerHTML=newPrice1;
 
       })
+
+
+
+
+
+      function getNumberOfItem(NumberOfItem,id) {
+         NumberOfItem=NumberOfItem+1;
+         document.getElementById(id).value=NumberOfItem;
+         return NumberOfItem;
+      }
+
+      function addPriceOfItem(priceOfOneItem,newNumberOfItem,id) {
+         let newPrice = priceOfOneItem *newNumberOfItem;
+         document.getElementById(id).innerHTML=newPrice;
+      }
 
    </script>
 </body>
